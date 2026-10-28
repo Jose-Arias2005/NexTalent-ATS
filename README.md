@@ -55,27 +55,27 @@
 
 ```mermaid
 graph TD
-    User([Visitante / Candidato]) -->|Web Pública / Link Directo| PublicViews[Landing & Job Board]
-    Recruiter([Equipo de Selección]) -->|Acceso Autenticado| AdminViews[Panel ATS & Métricas]
+    User(["Visitante / Candidato"]) -->|Web Pública / Link Directo| PublicViews["Landing & Job Board"]
+    Recruiter(["Equipo de Selección"]) -->|Acceso Autenticado| AdminViews["Panel ATS & Métricas"]
     
-    subgraph Frontend [React 19 + TypeScript + Vite]
-        PublicViews --> StorageLayer[StorageManager Reactivo]
+    subgraph Frontend ["React 19 + TypeScript + Vite"]
+        PublicViews --> StorageLayer["StorageManager Reactivo"]
         AdminViews --> StorageLayer
-        StorageLayer --> MemoryCache[Caché en Memoria - Latencia 0ms]
+        StorageLayer --> MemoryCache["Caché en Memoria - Latencia 0ms"]
     end
     
-    subgraph Storage [Persistencia Local de Alto Rendimiento]
-        MemoryCache <--> IDBLayer[Motor IndexedDB (TalentATS_ProductionDB_v2)]
-        IDBLayer --> StoreHist[(historical_candidates - Base Histórica)]
-        IDBLayer --> StoreVac[(vacancies_2026)]
-        IDBLayer --> StoreCand[(candidates_2026 - Unif. DNI)]
-        IDBLayer --> StoreApp[(applications_2026)]
-        IDBLayer --> StoreUsers[(admin_users)]
+    subgraph Storage ["Persistencia Local de Alto Rendimiento"]
+        MemoryCache <--> IDBLayer["Motor IndexedDB (TalentATS_ProductionDB_v2)"]
+        IDBLayer --> StoreHist[("historical_candidates - Base Histórica")]
+        IDBLayer --> StoreVac[("vacancies_2026")]
+        IDBLayer --> StoreCand[("candidates_2026 - Unif. DNI")]
+        IDBLayer --> StoreApp[("applications_2026")]
+        IDBLayer --> StoreUsers[("admin_users")]
     end
 
-    subgraph Integraciones Cloud
-        AdminViews -->|Proxy Vite| DriveAPI[Google Drive & Sheets API]
-        AdminViews -->|Proxy Vite| BiginAPI[Zoho Bigin CRM API]
+    subgraph Integraciones ["Integraciones Cloud"]
+        AdminViews -->|Proxy Vite| DriveAPI["Google Drive & Sheets API"]
+        AdminViews -->|Proxy Vite| BiginAPI["Zoho Bigin CRM API"]
     end
 ```
 

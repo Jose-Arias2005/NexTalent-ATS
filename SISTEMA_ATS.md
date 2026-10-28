@@ -24,22 +24,22 @@ La plataforma web **NexTalent ATS** es un ecosistema integral de reclutamiento e
 
 ```mermaid
 graph TD
-    User([Postulante / Visitante]) -->|Web Pública / Link Directo| PublicViews[Landing & Job Board]
-    Recruiter([Equipo de Selección]) -->|Login Protegido #admin| AdminViews[Panel ATS & Analítica]
+    User(["Postulante / Visitante"]) -->|Web Pública / Link Directo| PublicViews["Landing & Job Board"]
+    Recruiter(["Equipo de Selección"]) -->|Login Protegido #admin| AdminViews["Panel ATS & Analítica"]
     
-    subgraph Frontend [React 19 + TypeScript + Vite]
-        PublicViews --> StorageLayer[StorageManager Reactivo]
+    subgraph Frontend ["React 19 + TypeScript + Vite"]
+        PublicViews --> StorageLayer["StorageManager Reactivo"]
         AdminViews --> StorageLayer
-        StorageLayer --> MemoryCache[Caché en Memoria - Latencia 0ms]
+        StorageLayer --> MemoryCache["Caché en Memoria - Latencia 0ms"]
     end
     
-    subgraph Storage [Persistencia Local de Alto Rendimiento]
-        MemoryCache <--> IDBLayer[Motor IndexedDB (TalentATS_ProductionDB_v2)]
-        IDBLayer --> StoreHist[(historical_candidates - Base Histórica)]
-        IDBLayer --> StoreVac[(vacancies_2026)]
-        IDBLayer --> StoreCand[(candidates_2026 - Unif. DNI)]
-        IDBLayer --> StoreApp[(applications_2026)]
-        IDBLayer --> StoreUsers[(admin_users)]
+    subgraph Storage ["Persistencia Local de Alto Rendimiento"]
+        MemoryCache <--> IDBLayer["Motor IndexedDB (TalentATS_ProductionDB_v2)"]
+        IDBLayer --> StoreHist[("historical_candidates - Base Histórica")]
+        IDBLayer --> StoreVac[("vacancies_2026")]
+        IDBLayer --> StoreCand[("candidates_2026 - Unif. DNI")]
+        IDBLayer --> StoreApp[("applications_2026")]
+        IDBLayer --> StoreUsers[("admin_users")]
     end
 ```
 
