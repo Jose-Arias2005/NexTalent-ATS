@@ -1,0 +1,35 @@
+# ==============================================================================
+# NEXTALENT ATS — EXECUTIVE SEARCH & TALENT ACQUISITION PLATFORM
+# Specification & Requirements
+# ==============================================================================
+# NOTA: Este proyecto está construido sobre el ecosistema Node.js (React 19 + TypeScript + Vite).
+# Las dependencias oficiales se gestionan a través de package.json y npm.
+#
+# INSTRUCCIONES DE INSTALACIÓN Y EJECUCIÓN:
+# 1. Instalar dependencias:
+#      npm install
+# 2. Servidor de desarrollo:
+#      npm run dev
+# 3. Compilación de producción:
+#      npm run build
+# ==============================================================================
+
+# ENTORNO DE EJECUCIÓN / RUNTIME:
+# Node.js >= 18.0.0 (LTS v20+ recomendado)
+# npm >= 9.0.0
+
+# DEPENDENCIAS DE PRODUCCIÓN (definidas en package.json):
+# react==19.2.8
+# react-dom==19.2.8
+# recharts==3.10.1
+# xlsx==0.18.5
+# lucide-react==1.57.0
+
+# DEPENDENCIAS DE DESARROLLO (definidas en package.json):
+# typescript==6.0.2
+# vite==8.3.0
+# @vitejs/plugin-react==6.1.1
+# oxlint==1.81.0
+# @types/react==19.2.18
+# @types/react-dom==19.2.7
+# @types/node==24.13.3
